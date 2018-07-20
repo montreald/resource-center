@@ -14,6 +14,12 @@ import lightBlue from '@material-ui/core/colors/lightBlue';
 import List from '@material-ui/core/List';
 import Divider from '@material-ui/core/Divider';
 import Drawer from '@material-ui/core/Drawer';
+import BottomNavigation from '@material-ui/core/BottomNavigation';
+import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
+import RestoreIcon from '@material-ui/icons/Restore';
+import FavoriteIcon from '@material-ui/icons/Favorite';
+import LocationOnIcon from '@material-ui/icons/LocationOn';
+import TitlebarGridList from './components/Gallery'
 import 'typeface-roboto'
 
 const theme = createMuiTheme({
@@ -104,6 +110,7 @@ class App extends Component {
               <Button color="inherit">Login</Button>
             </Toolbar>
           </AppBar>
+          <TitlebarGridList/>
           <Drawer open={this.state.left} onClose={this.toggleDrawer('left', false)}>
             <div
               tabIndex={0}
@@ -114,6 +121,17 @@ class App extends Component {
               {sideList}
             </div>
           </Drawer>
+          <BottomNavigation
+            onChange={this.handleChange= (event, value) => {
+              this.setState({ value });
+            }}
+            showLabels
+            className={classes.root} style={{position: 'absolute', bottom: 0, width: '100%'}}
+          >
+            <BottomNavigationAction label="Recents" icon={<RestoreIcon />} />
+            <BottomNavigationAction label="Favorites" icon={<FavoriteIcon />} />
+            <BottomNavigationAction label="Nearby" icon={<LocationOnIcon />} />
+          </BottomNavigation>
         </div>
       </MuiThemeProvider>
     );
