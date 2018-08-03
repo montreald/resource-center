@@ -6,7 +6,8 @@ import { BrowserRouter, Route, Link } from 'react-router-dom'
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles'
 import lightBlue from '@material-ui/core/colors/lightBlue'
 import GuttersGrid from './components/Gallery'
-import Topbar from './components/Topbar'
+import TopBar from './components/TopBar'
+import SimpleBottomNavigation from './components/SimpleBottomNavigation'
 import 'typeface-roboto'
 
 const theme = createMuiTheme({
@@ -35,8 +36,9 @@ class App extends Component {
       <BrowserRouter>
         <MuiThemeProvider theme={theme}>
           <div className={classes.root}>
-            <Topbar />
+            <TopBar />
             <GuttersGrid />
+            <SimpleBottomNavigation />
           </div>
         </MuiThemeProvider>
       </BrowserRouter>
