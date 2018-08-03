@@ -18,6 +18,12 @@
   font-size: 1.5em;
 }
 
+[class*="App-list"] a> ul{
+  padding-left: 10px;
+}
+[class*="App-root"] [class*="paper"]{
+  align-items: center;
+}
 .App-intro {
   font-size: large;
 }
