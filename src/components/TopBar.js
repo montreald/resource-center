@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { withStyles } from '@material-ui/core/styles'
 import AppBar from '@material-ui/core/AppBar'
-import { Route, Link } from 'react-router-dom'
 import Toolbar from '@material-ui/core/Toolbar'
 import Typography from '@material-ui/core/Typography'
 import Button from '@material-ui/core/Button'
@@ -13,7 +12,7 @@ import List from '@material-ui/core/List'
 import ListItem from '@material-ui/core/ListItem'
 import ListItemText from '@material-ui/core/ListItemText'
 import Divider from '@material-ui/core/Divider'
-import SimpleList from './SimpleList'
+import SideBarItem from './SideBarItem'
 
 const styles = {
   root: {
@@ -51,30 +50,6 @@ class TopBar extends Component {
   render() {
     const { classes } = this.props
 
-    /*const sideList = (
-      <div className={classes.list}>
-        <Link to="/">
-          <List>Home</List>
-        </Link>
-        <Divider />
-        <Link to="/item2">
-          <List>Item2</List>
-        </Link>
-        <Divider />
-        <Link to="/item3">
-          <List>Item3</List>
-        </Link>
-        <Divider />
-        <Link to="/item4">
-          <List>Item4</List>
-        </Link>
-        <Divider />
-        <Link to="/item5">
-          <List>Item5</List>
-        </Link>
-        <Divider />
-      </div>
-    );*/
     const links = [
       { isExact: true, linkTo: '/', text: 'Home' },
       { isExact: false, linkTo: '/about', text: 'About' },
@@ -118,23 +93,12 @@ class TopBar extends Component {
           >
             {links.map((link, i) => {
               return (
-                <div className={classes.root}>
-                  <List component="nav">
-                    <ListItem button>
-                      <ListItemText
-                        isExact={link.isExact}
-                        linkTo={link.linkTo}
-                        primary={link.text}
-                      />
-                    </ListItem>
-                  </List>
-                  <Divider />
-                  <Route exact path="/" render={() => <h1>Home</h1>} />
-                  <Route exact path="/item2" render={() => <h1>Item2</h1>} />
-                  <Route exact path="/item3" render={() => <h1>Item3</h1>} />
-                  <Route exact path="/item4" render={() => <h1>Item4</h1>} />
-                  <Route exact path="/item5" render={() => <h1>Item5</h1>} />
-                </div>
+                <SideBarItem
+                  isExact={link.isExact}
+                  linkTo={link.linkTo}
+                  primaryText={link.text}
+                  key={i}
+                />
               )
             })}
           </div>
