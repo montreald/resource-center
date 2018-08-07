@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import './App.css'
 import PropTypes from 'prop-types'
 import { withStyles } from '@material-ui/core/styles'
-import { BrowserRouter, Route, Switch } from 'react-router-dom'
+import { BrowserRouter, Route, Switch, Link } from 'react-router-dom'
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles'
 import lightBlue from '@material-ui/core/colors/lightBlue'
 import GuttersGrid from './components/Gallery'
@@ -47,13 +47,17 @@ class App extends Component {
           <div className={classes.root}>
             <TopBar>
               <Switch>
-                <Route exact path="/" component={Home} />
-                <Route exact path="/item2" component={Capacities} />
-                <Route exact path="/item3" component={About} />
-                <Route exact path="/item4" component={Careers} />
-                <Route exact path="/item5" component={News} />
-                <Route exact path="/item5" component={Projects} />
-                <Route exact path="/item5" component={Contacts} />
+                <Route exact path="/" component={Home} to="/" />
+                <Route path="/about" component={About} to="/about" />
+                <Route path="/projects" component={Projects} to="/projects" />
+                <Route path="/careers" component={Careers} to="/careers" />
+                <Route
+                  path="/capacities"
+                  component={Capacities}
+                  to="/capacities"
+                />
+                <Route path="/news" component={News} to="/news" />
+                <Route path="/contacts" component={Contacts} to="/contacts" />
               </Switch>
             </TopBar>
             <GuttersGrid />

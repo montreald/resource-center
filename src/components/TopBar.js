@@ -1,18 +1,19 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { withStyles } from '@material-ui/core/styles'
-import AppBar from '@material-ui/core/AppBar'
-import Toolbar from '@material-ui/core/Toolbar'
-import Typography from '@material-ui/core/Typography'
-import Button from '@material-ui/core/Button'
-import IconButton from '@material-ui/core/IconButton'
+import {
+  AppBar,
+  IconButton,
+  Toolbar,
+  Typography,
+  Drawer,
+  MenuItem,
+  Button,
+  Divider,
+  List
+} from '@material-ui/core'
 import MenuIcon from '@material-ui/icons/Menu'
-import Drawer from '@material-ui/core/Drawer'
-import List from '@material-ui/core/List'
-import ListItem from '@material-ui/core/ListItem'
-import ListItemText from '@material-ui/core/ListItemText'
-import Divider from '@material-ui/core/Divider'
-import SideBarItem from './SideBarItem'
+import { Link } from 'react-router-dom'
 
 const styles = {
   root: {
@@ -33,12 +34,26 @@ const styles = {
   }
 }
 
+const links = [
+  { isExact: true, linkTo: '/', textIn: 'Home' },
+  { isExact: false, linkTo: '/about', textIn: 'About' },
+  { isExact: false, linkTo: '/projects', textIn: 'Our Projects' },
+  { isExact: false, linkTo: '/careers', textIn: 'Careers' },
+  { isExact: false, linkTo: '/capacities', textIn: 'Capacities' },
+  { isExact: false, linkTo: '/news', textIn: 'News' },
+  { isExact: false, linkTo: '/contacts', textIn: 'Contacts' }
+]
+
 class TopBar extends Component {
+  button = null
+
   state = {
     top: false,
     left: false,
     bottom: false,
-    right: false
+    right: false,
+    anchorEl: null,
+    selectedIndex: 1
   }
 
   toggleDrawer = (side, open) => () => {
@@ -49,16 +64,7 @@ class TopBar extends Component {
 
   render() {
     const { classes } = this.props
-
-    const links = [
-      { isExact: true, linkTo: '/', text: 'Home' },
-      { isExact: false, linkTo: '/about', text: 'About' },
-      { isExact: false, linkTo: '/projects', text: 'Our Projects' },
-      { isExact: false, linkTo: '/careers', text: 'Careers' },
-      { isExact: false, linkTo: '/capacities', text: 'Capacities' },
-      { isExact: false, linkTo: '/news', text: 'News' },
-      { isExact: false, linkTo: '/contacts', text: 'Contacts' }
-    ]
+    const { anchorEl } = this.state
 
     return (
       <div>
@@ -91,16 +97,17 @@ class TopBar extends Component {
             onClick={this.toggleDrawer('left', false)}
             onKeyDown={this.toggleDrawer('left', false)}
           >
-            {links.map((link, i) => {
-              return (
-                <SideBarItem
-                  isExact={link.isExact}
-                  linkTo={link.linkTo}
-                  primaryText={link.text}
-                  key={i}
-                />
-              )
-            })}
+            {links.map((link, i) => (
+              <MenuItem
+                component={Link}
+                to={link.linkTo}
+                key={link.i}
+                selected={i === this.state.selectedIndex}
+                onClick={event => this.handleMenuItemClick(event, i)}
+              >
+                {link.textIn}
+              </MenuItem>
+            ))}
           </div>
         </Drawer>
       </div>

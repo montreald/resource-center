@@ -1,3 +1,9 @@
-/**
- * Created by d_danyliuk on 8/6/2018.
- */
+import React, { Component } from 'react'
+
+class About extends Component {
+  state = {}
+  render() {
+    return <h1>About View</h1>
+  }
+}
+export default About

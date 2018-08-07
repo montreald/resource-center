@@ -1,3 +1,9 @@
-/**
- * Created by d_danyliuk on 8/6/2018.
- */
+import React, { Component } from 'react'
+
+class News extends Component {
+  state = {}
+  render() {
+    return <h1>News View</h1>
+  }
+}
+export default News

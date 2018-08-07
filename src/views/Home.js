@@ -1,3 +1,9 @@
-/**
- * Created by d_danyliuk on 8/6/2018.
- */
+import React, { Component } from 'react'
+
+class Home extends Component {
+  state = {}
+  render() {
+    return <h1>Home View</h1>
+  }
+}
+export default Home
