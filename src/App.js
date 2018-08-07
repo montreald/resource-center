@@ -15,7 +15,6 @@ import About from './views/About'
 import Capacities from './views/Capacities'
 import Careers from './views/Careers'
 import Contacts from './views/Contacts'
-import Home from './views/Home'
 import News from './views/News'
 import Projects from './views/Projects'
 
@@ -45,22 +44,16 @@ class App extends Component {
       <BrowserRouter>
         <MuiThemeProvider theme={theme}>
           <div className={classes.root}>
-            <TopBar>
-              <Switch>
-                <Route exact path="/" component={Home} to="/" />
-                <Route path="/about" component={About} to="/about" />
-                <Route path="/projects" component={Projects} to="/projects" />
-                <Route path="/careers" component={Careers} to="/careers" />
-                <Route
-                  path="/capacities"
-                  component={Capacities}
-                  to="/capacities"
-                />
-                <Route path="/news" component={News} to="/news" />
-                <Route path="/contacts" component={Contacts} to="/contacts" />
-              </Switch>
-            </TopBar>
-            <GuttersGrid />
+            <TopBar />
+            <Switch>
+              <Route exact path="/" component={GuttersGrid} />
+              <Route path="/about" component={About} />
+              <Route path="/projects" component={Projects} />
+              <Route path="/careers" component={Careers} />
+              <Route path="/capacities" component={Capacities} />
+              <Route path="/news" component={News} />
+              <Route path="/contacts" component={Contacts} />
+            </Switch>
             <SimpleBottomNavigation />
           </div>
         </MuiThemeProvider>

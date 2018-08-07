@@ -8,9 +8,7 @@ import {
   Typography,
   Drawer,
   MenuItem,
-  Button,
-  Divider,
-  List
+  Button
 } from '@material-ui/core'
 import MenuIcon from '@material-ui/icons/Menu'
 import { Link } from 'react-router-dom'
@@ -54,6 +52,18 @@ class TopBar extends Component {
     right: false,
     anchorEl: null,
     selectedIndex: 1
+  }
+
+  handleClickListItem = event => {
+    this.setState({ anchorEl: event.currentTarget })
+  }
+
+  handleMenuItemClick = (event, index) => {
+    this.setState({ selectedIndex: index, anchorEl: null })
+  }
+
+  handleClose = () => {
+    this.setState({ anchorEl: null })
   }
 
   toggleDrawer = (side, open) => () => {
@@ -101,7 +111,7 @@ class TopBar extends Component {
               <MenuItem
                 component={Link}
                 to={link.linkTo}
-                key={link.i}
+                key={i}
                 selected={i === this.state.selectedIndex}
                 onClick={event => this.handleMenuItemClick(event, i)}
               >

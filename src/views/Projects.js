@@ -1,9 +1,7 @@
-import React, { Component } from 'react'
+import React, { Fragment } from 'react'
 
-class Projects extends Component {
-  state = {}
-  render() {
-    return <h1>Projects View</h1>
-  }
-}
-export default Projects
+export default props => (
+  <Fragment>
+    <div>Projects</div>
+  </Fragment>
+)

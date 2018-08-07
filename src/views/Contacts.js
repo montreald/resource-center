@@ -1,9 +1,7 @@
-import React, { Component } from 'react'
+import React, { Fragment } from 'react'
 
-class Contacts extends Component {
-  state = {}
-  render() {
-    return <h1>Contacts View</h1>
-  }
-}
-export default Contacts
+export default props => (
+  <Fragment>
+    <div>Contacts</div>
+  </Fragment>
+)
