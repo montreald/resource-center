@@ -2,16 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="095c69de-e495-4611-a9a9-fed7f265d635" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/views/Home.js" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/App.js" afterPath="$PROJECT_DIR$/src/App.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/TopBar.js" afterPath="$PROJECT_DIR$/src/components/TopBar.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/views/About.js" afterPath="$PROJECT_DIR$/src/views/About.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/views/Capacities.js" afterPath="$PROJECT_DIR$/src/views/Capacities.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/views/Careers.js" afterPath="$PROJECT_DIR$/src/views/Careers.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/views/Contacts.js" afterPath="$PROJECT_DIR$/src/views/Contacts.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/views/News.js" afterPath="$PROJECT_DIR$/src/views/News.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/views/Projects.js" afterPath="$PROJECT_DIR$/src/views/Projects.js" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -50,8 +41,8 @@
           <file leaf-file-name="Projects.js" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/views/Projects.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="102">
-                  <caret line="6" column="10" lean-forward="true" selection-start-line="6" selection-start-column="10" selection-end-line="6" selection-end-column="10" />
+                <state relative-caret-position="85">
+                  <caret line="5" column="10" lean-forward="true" selection-start-line="5" selection-start-column="10" selection-end-line="5" selection-end-column="10" />
                   <folding />
                 </state>
               </provider>
@@ -105,7 +96,7 @@
             <entry file="file://$PROJECT_DIR$/src/components/TopBar.js">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="476">
-                  <caret line="112" column="32" lean-forward="true" selection-start-line="112" selection-start-column="16" selection-end-line="112" selection-end-column="32" />
+                  <caret line="111" column="32" lean-forward="true" selection-start-line="111" selection-start-column="16" selection-end-line="111" selection-end-column="32" />
                   <folding>
                     <element signature="e#0#40#0" expanded="true" />
                   </folding>
@@ -387,12 +378,12 @@
       <updated>1532015460263</updated>
       <workItem from="1532015463646" duration="38941000" />
       <workItem from="1532720462445" duration="700000" />
-      <workItem from="1533068238583" duration="35577000" />
+      <workItem from="1533068238583" duration="35769000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="75218000" />
+    <option name="totallyTimeSpent" value="75410000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="0" />
@@ -663,8 +654,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/views/Projects.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="10" lean-forward="true" selection-start-line="6" selection-start-column="10" selection-end-line="6" selection-end-column="10" />
+        <state relative-caret-position="85">
+          <caret line="5" column="10" lean-forward="true" selection-start-line="5" selection-start-column="10" selection-end-line="5" selection-end-column="10" />
           <folding />
         </state>
       </provider>
@@ -672,7 +663,7 @@
     <entry file="file://$PROJECT_DIR$/src/components/TopBar.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="476">
-          <caret line="112" column="32" lean-forward="true" selection-start-line="112" selection-start-column="16" selection-end-line="112" selection-end-column="32" />
+          <caret line="111" column="32" lean-forward="true" selection-start-line="111" selection-start-column="16" selection-end-line="111" selection-end-column="32" />
           <folding>
             <element signature="e#0#40#0" expanded="true" />
           </folding>
