@@ -12,6 +12,7 @@ import {
 } from '@material-ui/core'
 import MenuIcon from '@material-ui/icons/Menu'
 import { Link } from 'react-router-dom'
+import Login from '../Login'
 
 const styles = {
   root: {
@@ -74,7 +75,6 @@ class TopBar extends Component {
 
   render() {
     const { classes } = this.props
-    const { anchorEl } = this.state
 
     return (
       <div>
@@ -94,7 +94,7 @@ class TopBar extends Component {
             >
               News
             </Typography>
-            <Button color="inherit">Login</Button>
+            <Login />
           </Toolbar>
         </AppBar>
         <Drawer
