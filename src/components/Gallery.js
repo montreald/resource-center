@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { withStyles } from '@material-ui/core/styles'
-import Grid from '@material-ui/core/Grid'
-import Paper from '@material-ui/core/Paper'
+import { Grid, Paper } from '@material-ui/core'
+import { Link } from 'react-router-dom'
 
 const styles = theme => ({
   root: {
@@ -11,12 +11,21 @@ const styles = theme => ({
     margin: '0 auto',
     width: 'calc(100% - 16px)'
   },
+  demo: {
+    justifyContent: 'space-evenly',
+    marging: '10px 0'
+  },
   paper: {
     height: 'auto',
     maxWidth: '280px',
     width: '30vw',
     minWidth: '160px',
-    backgroundColor: '#4ddeecb0'
+    backgroundColor: '#f3f3f3',
+    textAlign: 'center',
+    padding: '5px 0'
+  },
+  hrefcontainer: {
+    margin: '10px 0'
   },
   control: {
     padding: theme.spacing.unit * 2
@@ -24,12 +33,12 @@ const styles = theme => ({
 })
 
 const contentItem = [
-  ['Name_1', 'Description'],
-  ['Name_2', 'Description'],
-  ['Name_3', 'Description'],
-  ['Name_4', 'Description'],
-  ['Name_5', 'Description'],
-  ['Name_6', 'Description']
+  ['Name_1', 'Description', '/about'],
+  ['Name_2', 'Description', '/capacities'],
+  ['Name_3', 'Description', '/news'],
+  ['Name_4', 'Description', '/projects'],
+  ['Name_5', 'Description', '/contacts'],
+  ['Name_6', 'Description', '/careers']
 ]
 
 class GuttersGrid extends Component {
@@ -49,7 +58,7 @@ class GuttersGrid extends Component {
 
     return (
       <Grid container className={classes.root} spacing={16}>
-        <Grid item xs={12} sm={6}>
+        <Grid item xs={6} sm={6}>
           <Grid
             container
             className={classes.demo}
@@ -57,24 +66,17 @@ class GuttersGrid extends Component {
             spacing={Number(spacing)}
           >
             {contentItem.map(value => (
-              <Grid key={value} item>
-                <Paper className={classes.paper}>
-                  <h1>{value[0]}</h1>
-                  <h2>{value[1]}</h2>
-                </Paper>
-              </Grid>
+              <Link key={value} to={value[2]} className={classes.hrefcontainer}>
+                <Grid item>
+                  <Paper className={classes.paper}>
+                    <h1>{value[0]}</h1>
+                    <h2>{value[1]}</h2>
+                  </Paper>
+                </Grid>
+              </Link>
             ))}
           </Grid>
         </Grid>
-        {/*<Grid item xs={12}>
-          <Grid container className={classes.demo} justify="center" spacing={Number(spacing)}>
-            {[0, 1, 2].map(value => (
-              <Grid key={value} item>
-                <Paper className={classes.paper} />
-              </Grid>
-            ))}
-          </Grid>
-        </Grid>*/}
       </Grid>
     )
   }

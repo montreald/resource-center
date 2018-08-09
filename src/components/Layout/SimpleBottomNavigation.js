@@ -15,7 +15,7 @@ const styles = {
   }
 }
 
-class SimpleBottomNavigation extends React.Component {
+class SimpleBottomNavigation extends Component {
   state = {
     value: 0
   }

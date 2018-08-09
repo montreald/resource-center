@@ -1,22 +1,17 @@
 import React, { Component } from 'react'
-import './App.css'
+import '../App.css'
 import PropTypes from 'prop-types'
 import { withStyles } from '@material-ui/core/styles'
 import { BrowserRouter, Route, Switch, Link } from 'react-router-dom'
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles'
 import lightBlue from '@material-ui/core/colors/lightBlue'
-import GuttersGrid from './components/Gallery'
-import TopBar from './components/TopBar'
-import SimpleBottomNavigation from './components/SimpleBottomNavigation'
+import GuttersGrid from './Gallery'
+import { TopBar, SimpleBottomNavigation } from './Layout'
 import 'typeface-roboto'
+import Content from './Content'
 
 /*Import Views*/
-import About from './views/About'
-import Capacities from './views/Capacities'
-import Careers from './views/Careers'
-import Contacts from './views/Contacts'
-import News from './views/News'
-import Projects from './views/Projects'
+import { About, Capacities, Contacts, Careers, News, Projects } from './Views'
 
 const theme = createMuiTheme({
   palette: {
@@ -54,6 +49,7 @@ class App extends Component {
               <Route path="/news" component={News} />
               <Route path="/contacts" component={Contacts} />
             </Switch>
+            <Content />
             <SimpleBottomNavigation />
           </div>
         </MuiThemeProvider>
