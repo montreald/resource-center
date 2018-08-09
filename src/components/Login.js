@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import PropTypes from 'prop-types'
 import { withStyles } from '@material-ui/core/styles'
 import {
@@ -26,6 +26,9 @@ const styles = {
     position: 'absolute',
     left: '2%',
     right: '2%'
+  },
+  login_btn: {
+    marginLeft: 30
   }
 }
 
@@ -107,18 +110,29 @@ class SimpleDialogDemo extends Component {
   }
 
   render() {
+    const { classes } = this.props
     return (
-      <div>
-        <br />
-        <Button onClick={this.handleClickOpen}>Login</Button>
+      <Fragment>
+        <Button
+          variant="outlined"
+          href="#outlined-buttons"
+          className={classes.login_btn}
+          onClick={this.handleClickOpen}
+        >
+          Login
+        </Button>
         <SimpleDialogWrapped
           selectedValue={this.state.selectedValue}
           open={this.state.open}
           onClose={this.handleClose}
         />
-      </div>
+      </Fragment>
     )
   }
 }
 
-export default SimpleDialogDemo
+SimpleDialogDemo.propTypes = {
+  classes: PropTypes.object.isRequired
+}
+
+export default withStyles(styles)(SimpleDialogDemo)

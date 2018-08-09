@@ -8,12 +8,11 @@ const styles = theme => ({
   root: {
     flexGrow: 1,
     justifyContent: 'center',
-    margin: '0 auto',
-    width: 'calc(100% - 16px)'
+    margin: '0 auto'
   },
   demo: {
     justifyContent: 'space-evenly',
-    marging: '10px 0'
+    margin: '10px 0'
   },
   paper: {
     height: 'auto',
@@ -57,8 +56,8 @@ class GuttersGrid extends Component {
     const { spacing } = this.state
 
     return (
-      <Grid container className={classes.root} spacing={16}>
-        <Grid item xs={6} sm={6}>
+      <Grid container className={classes.root} spacing={-16}>
+        <Grid item sm={12} md={6}>
           <Grid
             container
             className={classes.demo}

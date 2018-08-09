@@ -9,10 +9,10 @@ const styles = {
 
 export default props => (
   <Grid container>
-    <Grid item sm={6}>
+    <Grid item sx={12} sm={6}>
       <LeftPanel styles={styles} />
     </Grid>
-    <Grid item sm={6}>
+    <Grid item sx={12} sm={6}>
       <RightPanel styles={styles} />
     </Grid>
   </Grid>

@@ -7,8 +7,7 @@ import {
   Toolbar,
   Typography,
   Drawer,
-  MenuItem,
-  Button
+  MenuItem
 } from '@material-ui/core'
 import MenuIcon from '@material-ui/icons/Menu'
 import { Link } from 'react-router-dom'
@@ -23,9 +22,6 @@ export const styles = theme => ({
     '&$selected': {
       backgroundColor: theme.palette.action.selected
     }
-  },
-  flex: {
-    flexGrow: 1
   },
   menuButton: {
     marginLeft: -12,
