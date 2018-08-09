@@ -12,11 +12,17 @@ import {
 } from '@material-ui/core'
 import MenuIcon from '@material-ui/icons/Menu'
 import { Link } from 'react-router-dom'
+
+/*import items and component*/
+import ItemButtons from '../ItemButtons'
 import Login from '../Login'
 
-const styles = {
+export const styles = theme => ({
   root: {
-    flexGrow: 1
+    flexGrow: 1,
+    '&$selected': {
+      backgroundColor: theme.palette.action.selected
+    }
   },
   flex: {
     flexGrow: 1
@@ -29,9 +35,15 @@ const styles = {
     width: 250
   },
   fullList: {
-    width: 'auto'
+    width: 'auto',
+    '&$selected': {
+      backgroundColor: theme.palette.action.selected
+    }
+  },
+  selected: {
+    backgroundColor: '#00aeef'
   }
-}
+})
 
 const links = [
   { isExact: true, linkTo: '/', textIn: 'Home' },
@@ -74,7 +86,14 @@ class TopBar extends Component {
   }
 
   render() {
-    const { classes } = this.props
+    const {
+      classes,
+      className,
+      component,
+      selected,
+      role,
+      ...other
+    } = this.props
 
     return (
       <div>
@@ -92,8 +111,9 @@ class TopBar extends Component {
               color="inherit"
               className={classes.flex}
             >
-              News
+              Deni Liuk _Portfolio
             </Typography>
+            <ItemButtons />
             <Login />
           </Toolbar>
         </AppBar>
