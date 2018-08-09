@@ -56,7 +56,7 @@ class GuttersGrid extends Component {
     const { spacing } = this.state
 
     return (
-      <Grid container className={classes.root} spacing={-16}>
+      <Grid container className={classes.root} spacing={0}>
         <Grid item sm={12} md={6}>
           <Grid
             container
