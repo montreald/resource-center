@@ -1,19 +1,62 @@
-import React from 'react'
-import { Grid } from '@material-ui/core'
-import LeftPanel from './LeftPanel'
-import RightPanel from './RightPanel'
+import React, { Fragment, Component } from 'react'
+import { Grid, Paper } from '@material-ui/core'
+import PropTypes from 'prop-types'
+import { withStyles } from '@material-ui/core/styles'
+import ContentCard from './ContentCard'
 
-const styles = {
-  Paper: { padding: 10, marginTop: 10, marginBottom: 10 }
+const styles = theme => ({
+  root: {
+    flexGrow: 1
+  },
+  paper: {
+    height: 'auto',
+    margin: 10
+  },
+  demo: {
+    display: 'flex',
+    flexFlow: 'row wrap',
+    justifyContent: 'center',
+    maxWidth: 1024
+  },
+  control: {
+    padding: theme.spacing.unit * 2
+  }
+})
+
+class CardContainer extends Component {
+  state = {
+    spacing: '16'
+  }
+
+  handleChange = key => (event, value) => {
+    this.setState({
+      [key]: value
+    })
+  }
+
+  render() {
+    const { classes } = this.props
+    const { spacing } = this.state
+
+    return (
+      <Grid container className={classes.root} spacing={0}>
+        <Grid item xs={12}>
+          <Grid container justify="center" spacing={Number(spacing)}>
+            <Grid item className={classes.demo}>
+              {[0, 1, 2, 3, 4, 5].map(value => (
+                <Paper key={value} className={classes.paper}>
+                  <ContentCard />
+                </Paper>
+              ))}
+            </Grid>
+          </Grid>
+        </Grid>
+      </Grid>
+    )
+  }
+}
+CardContainer.propTypes = {
+  classes: PropTypes.object.isRequired
 }
 
-export default props => (
-  <Grid container>
-    <Grid item sx={12} sm={6}>
-      <LeftPanel styles={styles} />
-    </Grid>
-    <Grid item sx={12} sm={6}>
-      <RightPanel styles={styles} />
-    </Grid>
-  </Grid>
-)
+export default withStyles(styles)(CardContainer)

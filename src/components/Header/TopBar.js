@@ -1,10 +1,11 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import PropTypes from 'prop-types'
 import { withStyles } from '@material-ui/core/styles'
 import {
   AppBar,
   IconButton,
   Toolbar,
+  Button,
   Typography,
   Drawer,
   MenuItem
@@ -13,8 +14,7 @@ import MenuIcon from '@material-ui/icons/Menu'
 import { Link } from 'react-router-dom'
 
 /*import items and component*/
-import ItemButtons from '../ItemButtons'
-import Login from '../Login'
+import Login from './Login'
 
 export const styles = theme => ({
   root: {
@@ -27,6 +27,9 @@ export const styles = theme => ({
     marginLeft: -12,
     marginRight: 20
   },
+  headerButtonContainer: {
+    marginLeft: 'auto'
+  },
   list: {
     width: 250
   },
@@ -38,16 +41,19 @@ export const styles = theme => ({
   },
   selected: {
     backgroundColor: '#00aeef'
+  },
+  buttonHeader: {
+    color: '#fff',
+    border: '1px solid #fff',
+    margin: '0 1vw'
   }
 })
 
 const links = [
   { isExact: true, linkTo: '/', textIn: 'Home' },
   { isExact: false, linkTo: '/about', textIn: 'About' },
-  { isExact: false, linkTo: '/projects', textIn: 'Our Projects' },
-  { isExact: false, linkTo: '/careers', textIn: 'Careers' },
-  { isExact: false, linkTo: '/capacities', textIn: 'Capacities' },
-  { isExact: false, linkTo: '/news', textIn: 'News' },
+  { isExact: false, linkTo: '/projects', textIn: 'Portfolio' },
+  { isExact: false, linkTo: '/capacities', textIn: 'Service' },
   { isExact: false, linkTo: '/contacts', textIn: 'Contacts' }
 ]
 
@@ -63,16 +69,8 @@ class TopBar extends Component {
     selectedIndex: 1
   }
 
-  handleClickListItem = event => {
-    this.setState({ anchorEl: event.currentTarget })
-  }
-
   handleMenuItemClick = (event, index) => {
     this.setState({ selectedIndex: index, anchorEl: null })
-  }
-
-  handleClose = () => {
-    this.setState({ anchorEl: null })
   }
 
   toggleDrawer = (side, open) => () => {
@@ -99,17 +97,33 @@ class TopBar extends Component {
               className={classes.menuButton}
               color="inherit"
               aria-label="Menu"
+              onClick={this.toggleDrawer('left', true)}
             >
-              <MenuIcon onClick={this.toggleDrawer('left', true)} />
+              <MenuIcon />
             </IconButton>
             <Typography
               variant="title"
               color="inherit"
               className={classes.flex}
             >
-              Deni Liuk _Portfolio
+              Menu
             </Typography>
-            <ItemButtons />
+            <div className={classes.headerButtonContainer}>
+              {links.map((link, i) => (
+                <Fragment key={i}>
+                  <Button
+                    component={Link}
+                    to={link.linkTo}
+                    selected={i === this.state.selectedIndex}
+                    onClick={event => this.handleMenuItemClick(event, i)}
+                    variant="outlined"
+                    className={classes.buttonHeader}
+                  >
+                    {link.textIn}
+                  </Button>
+                </Fragment>
+              ))}
+            </div>
             <Login />
           </Toolbar>
         </AppBar>

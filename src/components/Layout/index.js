@@ -1,4 +1,4 @@
-import TopBar from './TopBar'
-import SimpleBottomNavigation from './SimpleBottomNavigation'
+import TopBar from '../Header/TopBar'
+import SimpleBottomNavigation from '../Footer/SimpleBottomNavigation'
 
 export { SimpleBottomNavigation, TopBar }

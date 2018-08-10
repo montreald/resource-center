@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
 import { withStyles, createMuiTheme } from '@material-ui/core/styles'
 import Button from '@material-ui/core/Button'
@@ -6,14 +6,6 @@ import purple from '@material-ui/core/colors/purple'
 import green from '@material-ui/core/colors/green'
 
 const styles = theme => ({
-  root: {
-    width: '30vw',
-    display: 'flex',
-    justifyContent: 'space-between',
-    minWidth: 300,
-    marginRight: 30,
-    marginLeft: 'auto'
-  },
   container: {
     display: 'flex',
     flexWrap: 'nowrap'
@@ -32,8 +24,8 @@ const styles = theme => ({
     color: '#fff',
     minWidth: '120px',
     border: '1px solid #fff'
-  },
-  bootstrapRoot: {
+  }
+  /*bootstrapRoot: {
     boxShadow: 'none',
     textTransform: 'none',
     fontSize: 16,
@@ -65,7 +57,7 @@ const styles = theme => ({
     '&:focus': {
       boxShadow: '0 0 0 0.2rem rgba(0,123,255,.5)'
     }
-  }
+  }*/
 })
 
 const theme = createMuiTheme({
@@ -74,26 +66,14 @@ const theme = createMuiTheme({
   }
 })
 
-function ItemButtons(props) {
-  const { classes } = props
+function ItemButtons() {
+  const { classes, link } = this.props
   return (
-    <div className={classes.root}>
+    <Fragment>
       <Button variant="outlined" className={classes.button}>
-        Default
+        {link.textIn}
       </Button>
-      <Button
-        variant="outlined"
-        href="#outlined-buttons"
-        className={classes.button}
-      >
-        Link
-      </Button>
-      <label htmlFor="outlined-button-file">
-        <Button variant="outlined" component="span" className={classes.button}>
-          Upload
-        </Button>
-      </label>
-    </div>
+    </Fragment>
   )
 }
 
@@ -101,4 +81,4 @@ ItemButtons.propTypes = {
   classes: PropTypes.object.isRequired
 }
 
-export default withStyles(styles)(ItemButtons)
+export default withStyles(styles, links)(ItemButtons)
