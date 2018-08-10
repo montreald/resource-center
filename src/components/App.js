@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import '../App.css'
+import '../GridStyles.css'
 import PropTypes from 'prop-types'
 import { withStyles } from '@material-ui/core/styles'
 import { BrowserRouter, Route, Switch, Link } from 'react-router-dom'
@@ -9,6 +10,7 @@ import GuttersGrid from './Gallery'
 import { TopBar, SimpleBottomNavigation } from './Layout'
 import 'typeface-roboto'
 import Content from './Content'
+import MainContainer from './Content/MainContainer'
 
 /*Import Views*/
 import { About, Capacities, Contacts, Careers, News, Projects } from './Views'
@@ -56,7 +58,7 @@ class App extends Component {
           <div className={classes.root}>
             <TopBar />
             <Switch>
-              <Route exact path="/" component={GuttersGrid} />
+              <Route exact path="/" component={MainContainer} />
               <Route path="/about" component={About} />
               <Route path="/projects" component={Projects} />
               <Route path="/careers" component={Careers} />

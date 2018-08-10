@@ -9,8 +9,7 @@ import {
   ListItemAvatar,
   ListItemText,
   DialogTitle,
-  Dialog,
-  Typography
+  Dialog
 } from '@material-ui/core'
 import PersonIcon from '@material-ui/icons/Person'
 import AddIcon from '@material-ui/icons/Add'
